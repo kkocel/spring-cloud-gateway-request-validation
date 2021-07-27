@@ -1,0 +1,5 @@
+context:
+  initializer:
+    classes: tech.kocel.spring.gateway.request.validation.infrastructure.BeansInitializer
+
+example.uri: https://httpstatuses.com/200
