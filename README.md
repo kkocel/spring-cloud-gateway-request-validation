@@ -18,7 +18,7 @@ Any use case that requires request validation can be implemented on gateway leve
 ./gradlew build
 ```
 
-### Running 
+## Running 
 
 ```commandline
 ./gradlew bootRun
