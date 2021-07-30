@@ -21,7 +21,7 @@ class RequestBodyValidationGatewayTests(
     fun `not valid request - rejected by gateway validation logic`() {
         webTestClient
             .post()
-            .uri("/example/400")
+            .uri("/example/200")
             .bodyValue(IncomingRequestBody(fieldToValidate = "not valid request"))
             .exchange()
             .expectStatus()

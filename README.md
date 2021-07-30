@@ -36,7 +36,7 @@ Content-Type: application/json
 
 Invalid request:
 ```http request
-POST http://localhost:8080/example/400
+POST http://localhost:8080/example/200
 Content-Type: application/json
 
 {"fieldToValidate": "not valid"}
