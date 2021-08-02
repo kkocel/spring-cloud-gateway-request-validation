@@ -12,6 +12,9 @@ Any use case that requires request validation can be implemented on gateway leve
 2. [SafetyNet Attestation](https://developer.android.com/training/safetynet/attestation)
 3. [Alexa request validation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/host-a-custom-skill-as-a-web-service.html#manually-verify-request-sent-by-alexa)
 
+You can read more about this code at [Alexa Request Validation with Spring Cloud Gateway
+](https://viacom.tech/blog/2021/08/02/alexa_request_validation_with_spring_cloud_gateway.html).
+
 ## Building
 
 ```commandline
