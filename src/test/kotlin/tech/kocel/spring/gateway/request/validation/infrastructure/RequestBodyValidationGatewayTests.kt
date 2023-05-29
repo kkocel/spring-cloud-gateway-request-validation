@@ -2,9 +2,8 @@ package tech.kocel.spring.gateway.request.validation.infrastructure
 
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.ApplicationContext
+import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.test.web.reactive.server.WebTestClient
 import tech.kocel.spring.gateway.request.validation.IncomingRequestBody
 
@@ -12,7 +11,7 @@ import tech.kocel.spring.gateway.request.validation.IncomingRequestBody
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 )
 class RequestBodyValidationGatewayTests(
-    @Autowired val context: ApplicationContext,
+    @LocalServerPort val port: Int,
 ) {
 
     lateinit var webTestClient: WebTestClient
@@ -56,8 +55,9 @@ class RequestBodyValidationGatewayTests(
     }
 
     fun buildWebClient(): WebTestClient {
-        return WebTestClient.bindToApplicationContext(context)
-            .configureClient()
+        return WebTestClient
+            .bindToServer()
+            .baseUrl("http://localhost:$port/")
             .build()
     }
 }

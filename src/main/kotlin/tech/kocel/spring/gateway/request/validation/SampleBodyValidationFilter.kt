@@ -6,14 +6,13 @@ import mu.KotlinLogging
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.GlobalFilter
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils
-import org.springframework.core.Ordered
 import org.springframework.http.HttpStatus
 import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
 class SampleBodyValidationFilter(
     private val objectMapper: ObjectMapper,
-) : GlobalFilter, Ordered {
+) : GlobalFilter {
 
     private val logger = KotlinLogging.logger {}
 
@@ -64,7 +63,4 @@ class SampleBodyValidationFilter(
     private fun headers(exchange: ServerWebExchange) = "  Request headers: ${exchange.request.headers}"
 
     private fun body(body: String?) = " Request body: $body"
-    override fun getOrder(): Int {
-        return 3
-    }
 }
