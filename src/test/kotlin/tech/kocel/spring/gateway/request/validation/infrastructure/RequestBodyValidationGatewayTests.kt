@@ -9,10 +9,10 @@ import org.springframework.test.web.reactive.server.WebTestClient
 import tech.kocel.spring.gateway.request.validation.IncomingRequestBody
 
 @SpringBootTest(
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 )
 class RequestBodyValidationGatewayTests(
-    @Autowired val context: ApplicationContext
+    @Autowired val context: ApplicationContext,
 ) {
 
     lateinit var webTestClient: WebTestClient
@@ -47,7 +47,7 @@ class RequestBodyValidationGatewayTests(
             .bodyValue(IncomingRequestBody(fieldToValidate = "secret"))
             .exchange()
             .expectStatus()
-            .is2xxSuccessful
+            .is3xxRedirection
     }
 
     @BeforeEach

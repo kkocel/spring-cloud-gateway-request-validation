@@ -2,4 +2,18 @@ context:
   initializer:
     classes: tech.kocel.spring.gateway.request.validation.infrastructure.BeansInitializer
 
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - name: CacheRequestBody
+          args:
+            bodyClass: java.lang.String
+        - StripPrefix=1
+      routes:
+        - id: example
+          uri: ${example.uri}
+          predicates:
+            - Path=/example/**
+
 example.uri: https://httpstatuses.com/200

@@ -1,1 +1,15 @@
 example.uri: https://httpstatuses.com/200
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - name: CacheRequestBody
+          args:
+            bodyClass: java.lang.String
+        - StripPrefix=1
+      routes:
+        - id: example
+          uri: ${example.uri}
+          predicates:
+            - Path=/example/**
