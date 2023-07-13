@@ -1,6 +1,6 @@
 plugins {
     id("org.springframework.boot") version "3.1.1"
-    id("io.spring.dependency-management") version "1.1.0"
+    id("io.spring.dependency-management") version "1.1.1"
     id("org.jmailen.kotlinter") version "3.15.0"
     id("io.gitlab.arturbosch.detekt") version "1.23.0"
     val kotlinVersion = "1.9.0"
