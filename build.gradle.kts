@@ -16,14 +16,6 @@ dependencyManagement {
     }
 }
 
-project.afterEvaluate {
-    configurations["detekt"].resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            useVersion("1.8.21")
-        }
-    }
-}
-
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
