@@ -51,13 +51,11 @@ class RequestBodyValidationGatewayTests(
 
     @BeforeEach
     fun setUp() {
-        webTestClient = buildWebClient()
-    }
-
-    fun buildWebClient(): WebTestClient {
-        return WebTestClient
-            .bindToServer()
-            .baseUrl("http://localhost:$port/")
-            .build()
+        if (!this::webTestClient.isInitialized) {
+            webTestClient = WebTestClient
+                .bindToServer()
+                .baseUrl("http://localhost:$port/")
+                .build()
+        }
     }
 }

@@ -2,7 +2,7 @@ plugins {
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
     id("org.jmailen.kotlinter") version "3.15.0"
-    id("io.gitlab.arturbosch.detekt") version "1.23.0"
+    id("io.gitlab.arturbosch.detekt") version "1.23.1"
     val kotlinVersion = "1.9.0"
     id("org.jetbrains.kotlin.plugin.allopen") version kotlinVersion
     kotlin("jvm") version kotlinVersion
@@ -13,14 +13,6 @@ dependencyManagement {
 
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:2022.0.4")
-    }
-}
-
-project.afterEvaluate {
-    configurations["detekt"].resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            useVersion("1.8.21")
-        }
     }
 }
 
