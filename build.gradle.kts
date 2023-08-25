@@ -1,5 +1,5 @@
 plugins {
-    id("org.springframework.boot") version "3.1.2"
+    id("org.springframework.boot") version "3.1.3"
     id("io.spring.dependency-management") version "1.1.3"
     id("org.jmailen.kotlinter") version "3.16.0"
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
