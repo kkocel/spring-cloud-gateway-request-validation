@@ -13,11 +13,13 @@ import reactor.core.publisher.Mono
 class SampleBodyValidationFilter(
     private val objectMapper: ObjectMapper,
 ) : GlobalFilter {
-
     private val logger = KotlinLogging.logger {}
 
     @Suppress("TooGenericExceptionCaught")
-    override fun filter(exchange: ServerWebExchange, chain: GatewayFilterChain): Mono<Void> {
+    override fun filter(
+        exchange: ServerWebExchange,
+        chain: GatewayFilterChain,
+    ): Mono<Void> {
         return try {
             // we have access to request body here - so we can validate it :)
             val body: String? = exchange.getAttribute(ServerWebExchangeUtils.CACHED_REQUEST_BODY_ATTR)
@@ -49,7 +51,11 @@ class SampleBodyValidationFilter(
     private fun getBody(exchange: ServerWebExchange): String? =
         exchange.getAttribute<String>(ServerWebExchangeUtils.CACHED_REQUEST_BODY_ATTR)
 
-    private fun logInvalidRequest(e: Throwable, exchange: ServerWebExchange, body: String?) {
+    private fun logInvalidRequest(
+        e: Throwable,
+        exchange: ServerWebExchange,
+        body: String?,
+    ) {
         logger.info {
             "Request was not validated, message: ${e.message}" +
                 cause(e) +

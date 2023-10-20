@@ -13,7 +13,6 @@ import tech.kocel.spring.gateway.request.validation.IncomingRequestBody
 class RequestBodyValidationGatewayTests(
     @LocalServerPort val port: Int,
 ) {
-
     lateinit var webTestClient: WebTestClient
 
     @Test
@@ -52,10 +51,11 @@ class RequestBodyValidationGatewayTests(
     @BeforeEach
     fun setUp() {
         if (!this::webTestClient.isInitialized) {
-            webTestClient = WebTestClient
-                .bindToServer()
-                .baseUrl("http://localhost:$port/")
-                .build()
+            webTestClient =
+                WebTestClient
+                    .bindToServer()
+                    .baseUrl("http://localhost:$port/")
+                    .build()
         }
     }
 }
