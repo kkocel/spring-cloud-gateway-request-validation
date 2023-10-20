@@ -3,10 +3,18 @@ plugins {
     id("io.spring.dependency-management") version "1.1.3"
     id("org.jmailen.kotlinter") version "4.0.0"
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
-    val kotlinVersion = "1.9.0"
+    val kotlinVersion = "1.9.10"
     id("org.jetbrains.kotlin.plugin.allopen") version kotlinVersion
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
+}
+
+configurations.matching { it.name == "detekt" }.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion("1.9.0")
+        }
+    }
 }
 
 dependencyManagement {
@@ -52,6 +60,5 @@ tasks.test {
 }
 
 tasks.wrapper {
-    gradleVersion = "8.1.1"
     distributionType = Wrapper.DistributionType.BIN
 }
