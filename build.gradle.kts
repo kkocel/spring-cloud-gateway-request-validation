@@ -9,6 +9,14 @@ plugins {
     kotlin("plugin.spring") version kotlinVersion
 }
 
+configurations.matching { it.name == "detekt" }.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion("1.9.0")
+        }
+    }
+}
+
 dependencyManagement {
 
     imports {
@@ -52,6 +60,5 @@ tasks.test {
 }
 
 tasks.wrapper {
-    gradleVersion = "8.1.1"
     distributionType = Wrapper.DistributionType.BIN
 }
