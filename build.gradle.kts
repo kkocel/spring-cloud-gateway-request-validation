@@ -2,7 +2,7 @@ plugins {
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.3"
     id("org.jmailen.kotlinter") version "4.0.0"
-    id("io.gitlab.arturbosch.detekt") version "1.23.1"
+    id("io.gitlab.arturbosch.detekt") version "1.23.2"
     val kotlinVersion = "1.9.20"
     id("org.jetbrains.kotlin.plugin.allopen") version kotlinVersion
     kotlin("jvm") version kotlinVersion
