@@ -1,3 +1,5 @@
+import io.gitlab.arturbosch.detekt.getSupportedKotlinVersion
+
 plugins {
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.3"
@@ -12,7 +14,7 @@ plugins {
 configurations.matching { it.name == "detekt" }.all {
     resolutionStrategy.eachDependency {
         if (requested.group == "org.jetbrains.kotlin") {
-            useVersion("1.9.0")
+            useVersion(getSupportedKotlinVersion())
         }
     }
 }
