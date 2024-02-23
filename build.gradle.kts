@@ -1,7 +1,7 @@
 import io.gitlab.arturbosch.detekt.getSupportedKotlinVersion
 
 plugins {
-    id("org.springframework.boot") version "3.2.2"
+    id("org.springframework.boot") version "3.2.3"
     id("io.spring.dependency-management") version "1.1.4"
     id("org.jmailen.kotlinter") version "4.2.0"
     id("io.gitlab.arturbosch.detekt") version "1.23.5"
