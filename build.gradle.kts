@@ -4,7 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.2.4"
     id("io.spring.dependency-management") version "1.1.4"
     id("org.jmailen.kotlinter") version "4.3.0"
-    id("io.gitlab.arturbosch.detekt") version "1.23.5"
+    id("io.gitlab.arturbosch.detekt") version "1.23.6"
     val kotlinVersion = "1.9.23"
     id("org.jetbrains.kotlin.plugin.allopen") version kotlinVersion
     kotlin("jvm") version kotlinVersion
